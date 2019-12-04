@@ -7,6 +7,8 @@ git clone https://github.com/MKKOW/P1_MN.git / ( git pull jak za drugim i n-tym 
 
 robisz to co masz robić
 
+### (ZAMYKASZ MATLABA)
+
 git add .
 
 git commit -m "Wiadomość"
