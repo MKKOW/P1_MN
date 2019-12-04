@@ -25,16 +25,9 @@ function [Ai]=invmd(A)
 %         Ui(n-i+1,(n-i+1):n)=(-U(n-i+1,(n-i+2):n)*Ui((n-i+2):n,(n-i+1):n))./U(n-i+1,n-i+1);
 %     end
 %     Ui(1,1)=1/U(1,1);
-
-    %Odwracanie L
     for i=1:n
-       Li(i,i)=1/L(i,i);
-       Li(i,1:(i-1))=(-L(i,1:(i-1))*Li(1:(i-1),1:(i-1)))/L(i,i);
-    end
-    %Odwracanie U
-    for j=n:(-1):1
-        Ui(j,j)=1/U(j,j);
-        Ui(j,(j+1):n)=(-U(j,(j+1):n)*Ui((j+1):n,(j+1):n))/U(j,j);
+       Ui(i,i)=1/U(i,i);
+       U(i,1:(i-1))=(-U(i,1:(i-1))
     end
     Ai=Li*Ui;
 end
