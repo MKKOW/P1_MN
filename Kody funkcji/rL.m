@@ -13,5 +13,5 @@ function r=rL(A,p)
         error('Matrix must be square');
     end
     X=invmd(A);
-    r=norm(X*A-eye(size(n)),p)/(norm(A,p)*norm(X,p));
+    r=norm(X*A-eye(size(A)),p)/(norm(A,p)*norm(X,p));
 end

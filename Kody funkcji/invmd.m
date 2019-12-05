@@ -28,7 +28,7 @@ function [Ai]=invmd(A)
 
     %Odwracanie L
     for i=1:n
-       Li(i,i)=1/L(i,i);
+       % Li(i,i)=1/L(i,i);
        Li(i,1:(i-1))=(-L(i,1:(i-1))*Li(1:(i-1),1:(i-1)))/L(i,i);
     end
     %Odwracanie U

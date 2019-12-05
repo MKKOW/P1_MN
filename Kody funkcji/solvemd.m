@@ -10,14 +10,14 @@ function [X]=solvemd(A,B)
     %X=B*invmd(A); tak nam nie wolno
     [U,L]=mdoolittle(A);
     n=size(A,1);
-    %Rozwi¹zywanie U*Y=B, backward substitution
+    %Rozwi¹zywanie Y*L=B
     Y=zeros(size(B));
     for j=n:(-1):1
-        Y(j,1:n)=(B(j,1:n)-U(j,j+1:n)*Y(j+1:n,1:n))/U(j,j);
+        Y(1:n,j)=B(1:n,j)-Y(1:n,(j+1):n)*L((j+1):n,j);
     end
-    %Rozwi¹zywanie L*X=Y, forward substitution
+    %Rozwi¹zywanie X*U=Y
     X=zeros(size(B));
     for i=1:n
-        X(i,1:n)=(Y(i,1:n)-L(i,1:(i-1))*Y(1:(i-1),1:n))/L(i,i);
+        X(1:n,i)=(Y(1:n,i)-X(1:n,1:(i-1))*U(1:(i-1),i))/U(i,i);
     end
 end

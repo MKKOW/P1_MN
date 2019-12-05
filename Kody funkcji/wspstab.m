@@ -17,5 +17,5 @@ function  w=wspstab(A,B,p)
     end
     X=solvemd(A,B);
     Z=B\A;
-    w=norm(X-Z,p)/(norm(Z,p)*conmd(A,p));
+    w=norm(X-Z,p)/(norm(Z,p)*condmd(A,p));
 end

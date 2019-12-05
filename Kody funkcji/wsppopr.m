@@ -15,5 +15,5 @@ function  w=wsppopr(A,B,p)
         error('Matrix must be square');
     end
     X=solvemd(A,B);
-    w=norm(B-AX,p)/(norm(A,p)*norm(X,p));
+    w=norm(B-X*A,p)/(norm(A,p)*norm(X,p));
 end

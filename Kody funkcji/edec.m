@@ -14,6 +14,6 @@ function e=edec(A,p)
     if size(A,1)~=size(A,2)
         error('Matrix must be square');
     end
-    [U,L]=mdoolitle(A);
+    [U,L]=mdoolittle(A);
     e=norm(A-U*L,p)/norm(A,p);
 end

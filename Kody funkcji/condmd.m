@@ -11,5 +11,6 @@ function c=condmd(A,p)
     if nargin>2
         error('Too many input arguments.');
     end
-    c=norm(A,p)*norm(invmd(A),p);
+    %c=norm(invmd(A),p)*norm(A,p);
+    c=cond(A,p);
 end
