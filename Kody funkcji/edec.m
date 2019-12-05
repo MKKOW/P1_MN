@@ -1,7 +1,7 @@
 function e=edec(A,p)
 %Funkcja wyznacza b³¹d rozk³adu macierzy A zmodyfikowan¹ metod¹ Doolittle'a
 %korzystaj¹c z p normy
-%e=edec(A
+%e=edec(A)
     if nargin<1
         error('Not enough input arguments.');
     end

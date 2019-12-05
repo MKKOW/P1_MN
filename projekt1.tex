@@ -60,31 +60,31 @@ Grupa G8}
 
 \noindent Niech:
 \[U=\begin{pmatrix}
-u_{1,1} & u_{1,2} & u_{1,3} & \ldots & u_{1,n} \\
-0 & u_{2,2} & u_{2,3} & \ldots & u_{2,n} \\
-0 & 0 & u_{3,3} & \ldots & u_{3,n} \\
+u_{11} & u_{12} & u_{13} & \ldots & u_{1n} \\
+0 & u_{22} & u_{23} & \ldots & u_{2n} \\
+0 & 0 & u_{33} & \ldots & u_{3n} \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & \ldots & u_{n,n}
+0 & 0 & 0 & \ldots & u_{nn}
 \end{pmatrix}.
 \]
 oraz 
 \[L=\begin{pmatrix}
 1 & 0 & 0 & \ldots & 0 \\
-l_{2,1} & 1 & 0 & \ldots & 0 \\
-l_{3,1} & l_{3,2} & 1 & \ldots & 0 \\
+l_{21} & 1 & 0 & \ldots & 0 \\
+l_{31} & l_{32} & 1 & \ldots & 0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-l_{n,1} & l_{n,2} & l_{n,3} & \ldots & 1
+l_{n1} & l_{n2} & l_{n3} & \ldots & 1
 \end{pmatrix}.
 \]
 Poszczeg\'olne elementy macierzy wyznaczamy ze wzor\'ow:
 \begin{equation}
-u_{i,j}=a_{i,j}-\sum_{k=j+1}^n u_{i,k}*l_{k,j} \label{U}
+u_{ij}=a_{ij}-\sum_{k=j+1}^n u_{ik}l_{kj} \label{U}
 \end{equation}
 
 oraz
  
 \begin{equation}
-l_{i,j}=\dfrac{a_{i,j}-\sum_{k=i+1}^n u_{i,k}*l_{k,j}}{u_{i,i}} \label{L}
+l_{ij}=\dfrac{a_{ij}-\sum_{k=i+1}^n u_{ik}l_{kj}}{u_{ii}} \label{L}
 \end{equation}
 \\
 gdzie wz\'or (\ref{U}) stosujemy dla $i \leq j$, a wz\'or (\ref{L}) dla $i > j$.
@@ -110,7 +110,7 @@ det(A)=det(UL)=det(U)*det(L)
 \]
 Natomiast z w\l{}asno\'sci macierzy tr\'ojk\k{a}tnych mamy:
 \[
-det(U)=\prod_{i=1}^n u_{i,i}
+det(U)=\prod_{i=1}^n u_{ii}
 \]
 oraz
 \[
@@ -118,7 +118,7 @@ det(L)=1
 \]
 Zatem 
 \[
-det(A)=\prod_{i=1}^n u_{i,i}
+det(A)=\prod_{i=1}^n u_{ii}
 \]
 Wyznaczaj\k{a}c odwrotno\'s\'c macierzy A r\'ownie\.z skorzystamy z wyznaczonych wcze\'sniej macierzy L i U:
 \[
@@ -136,7 +136,7 @@ cond(A)=\Vert A^{-1}\Vert  \Vert A \Vert
 \]
 \item b\l{}\k{e}du rozk\l{}adu:
 \[
-e_{dec}=\frac{\Vert A-BC \Vert}{\Vert A \Vert}
+e_{dec}=\frac{\Vert A-UL \Vert}{\Vert A \Vert}
 \]
 \item b\l{}\k{e}du wzgl\k{e}dnego:
 \[
@@ -148,7 +148,7 @@ wsp_{stab}=\frac{\Vert X-Z \Vert}{\Vert Z \Vert cond(A)}
 \]
 \item wsp\'o\l{}czynnika poprawno\'sci:
 \[
-wsp_{popr}=\frac{\Vert B-AX \Vert}{\Vert A \Vert \Vert X \Vert}
+wsp_{popr}=\frac{\Vert B-XA \Vert}{\Vert X \Vert \Vert A \Vert}
 \]
 \item jakiegos kurna wpolczynnika prawego:
 \[
@@ -205,37 +205,7 @@ Najwa\.zniejsze wyniki zestawiono w tabeli \ref{Tabela z wynikami algorytmu 1}.
 Jako\'s ma\l o tych przyk\l ad\'ow. O wiem, dodam obrazek.
 
 
-\begin{center}
-\includegraphics[width=10cm]{obrazek.eps}
-\nopagebreak
 
-{\footnotesize Rysunek 1: Przedstawia wykres oszacowania b\l \k edu\\
-dla pewnego algorytmu.}
-\end{center}
-
-Teraz dodam go jeszcze raz, ale inaczej niż poprzednio.
-
-\begin{figure}[!h]
-
-\centering\includegraphics[width=10cm]{obrazek.eps}
-
-\vskip-1.5ex
-
-\caption{\footnotesize Przedstawia to samo, co poprzedni obrazek.}
-\label{obrazek}
-\end{figure}
-
-Tym razem obrazek automatycznie dostał numer, do którego można się
-łatwo odwoływać przy użyciu etykiety i instrukcji
-,,$\backslash$ref''. Numer nie zgadza się z poprzednim, gdyż LaTeX
-sam numeruje tylko te obrazki, które zostały utworzone za pomocą
-środowiska ,,figure'' i dostały numer (przez użycie funkcji
-,,$\backslash$caption''). Dodatkową zaletą drugiego sposobu
-wstawiania rysunków jest fakt, że treść w obrębie środowiska
-,,figure'' lub ,,table'' jest traktowana jako całość i nie
-zostanie podzielona tak, jak to się zdarzyło z pierwszym
-obrazkiem. Mogą natomiast pojawić się puste przestrzenie. Dotyczy
-to również tabel.
 
 
 \section{Analiza wynik\'ow}
