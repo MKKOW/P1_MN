@@ -92,40 +92,84 @@ Schemat wyznaczania opiera si\k{e} na naprzemiennym obliczaniu warto\'sci elemen
 \\
 Po wyznaczeniu macierzy L oraz U nale\.zy rozwi\k{a}za\'c nast\k{e}puj\k{a}ce r\'ownania:
 \begin{equation}
-YL=B \label{backward}
+YL=B \label{Y}
 \end{equation}
 oraz
 \begin{equation}
-XU=Y \label{forward}
+XU=Y \label{X}
 \end{equation}
 \\
 gdzie $Y\in \mathbb R^\mathrm{n\times n}$. 
 \\
-Macierz Y z r\'ownania (\ref{backward}) wyznacza si\k{e} za pomoc\k{a} algorytmu Backward Substitution. Natomiast macierz X z r\'ownania (\ref{forward}) wyznacza si\k{e} za pomoc\k{a} algrytmu Forward Substitution.
+Macierz Y z r\'ownania (\ref{Y}) wyznacza si\k{e} za pomoc\k{a} wzoru
+\[
+y_{ij}=b_{ij}-\sum_{k=j+1}^n y_{ik}l_{kj} 
+\]
+wyznaczaj\k{a}c kolejne kolumny macierzy zaczynaj\k{a}c od n-tej. 
+\\
+ Natomiast macierz X z r\'ownania (\ref{X}) wyznacza si\k{e} za pomoc\k{a} wzoru
+ \[
+ x_{ij}=\frac{y_{ij}-\sum_{k=1}^{i-1} x_{ik}u_{ki}}{u_{jj}}
+ \]
+ wyznaczaj\k{a}c kolejne kolumny macierzy zaczynaj\k{a}c od pierwszej. 
 \\
 \\
-Wyznacznik macierzy A wyznaczymy dzi\k{e}ki prostej zale\.zno\'sci:
+Wyznacznik macierzy A wyznaczymy dzi\k{e}ki zale\.zno\'sci:
 \[
 det(A)=det(UL)=det(U)*det(L)
 \]
 Natomiast z w\l{}asno\'sci macierzy tr\'ojk\k{a}tnych mamy:
 \[
-det(U)=\prod_{i=1}^n u_{ii}
-\]
-oraz
-\[
-det(L)=1
+det(L)=\prod_{i=1}^n l_{i,i}=1
 \]
 Zatem 
 \[
-det(A)=\prod_{i=1}^n u_{ii}
+det(A)=det(U)
 \]
 Wyznaczaj\k{a}c odwrotno\'s\'c macierzy A r\'ownie\.z skorzystamy z wyznaczonych wcze\'sniej macierzy L i U:
 \[
 A^{-1}=(UL)^{-1}=L^{-1}U^{-1}
 \]
+gdzie $L^{-1}$ i $U^{-1}$ istniej\k{a} tylko, gdy $det(U)\neq 0$, czyli gdy \.zadna warto\'s\'c na gl\'ownej przek\k{a}tnej macierzy U nie jest r\'owny 0.
 \\
-Natomiast $L^{-1}$ oraz $U^{-1}$ wyznaczymy, wykorzystuj\k{a}c kolejny raz algorytmy odpowiednio Backward oraz Forward Substitution. Oczywi\'scie odwrotno\'sci macierzy wyznaczymy pod warunkiem, \.ze ich wyznacznik jest r\'o\.zny od zera. 
+Niech 
+\[
+L^{-1}=\begin{pmatrix}
+l_{11}' & 0 & 0 & \ldots & 0 \\
+l_{21}' & l_{22}' & 0 & \ldots & 0 \\
+l_{31}' & l_{32}' & l_{33}' & \ldots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+l_{n1}' & l_{n2}' & l_{n3}' & \ldots & l_{nn}'
+\end{pmatrix}.
+\]
+oraz
+\[
+U^{-1}=\begin{pmatrix}
+u_{11}' & u_{12}' & u_{13}' & \ldots & u_{1n}' \\
+0 & u_{22}' & u_{23}' & \ldots & u_{2n}' \\
+0 & 0 & u_{33}' & \ldots & u_{3n}' \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \ldots & u_{nn}'
+\end{pmatrix}.
+\]
+Z w\l{}asno\'sci macierzy tr\'ojk\k{a}tnych mamy:
+\[
+l_{ii}'=1
+\]
+oraz
+\[
+u_{ii}'=\frac{1}{u_{ii}}
+\]
+Pozosta\l{}e elementy macierzy $L^{-1}$ oraz $U^{-1}$ wyznaczymy, wykorzystuj\k{a}c wzory:
+\[
+l_{ij}'=-\sum_{k=j+1}^n l_{ik}l_{kj}'
+\]
+oraz
+\[
+u_{ij}'=-\frac{\sum_{k=i+1}^n u_{ik}u_{kj}'}{u_{ii}}
+\]
+\\
+gdzie elementy macierzy $L^{-1}$ wyznaczamy wierszami od pierwszego do n-tego, a elementy macierzy $U^{-1}$ wierszami od n-tego do pierwszego. 
 \\
 \\
 Wykorzystuj\k{a}c program do wyliczenia macierzy X nie unikniemy b\l{}\k{e}d\'ow obliczeniowych. Ich analiz\k{e} oprzemy na wyliczeniach:
@@ -148,7 +192,7 @@ wsp_{stab}=\frac{\Vert X-Z \Vert}{\Vert Z \Vert cond(A)}
 \]
 \item wsp\'o\l{}czynnika poprawno\'sci:
 \[
-wsp_{popr}=\frac{\Vert B-XA \Vert}{\Vert X \Vert \Vert A \Vert}
+wsp_{popr}=\frac{\Vert B-XA \Vert}{\Vert A \Vert \Vert X \Vert}
 \]
 \item jakiegos kurna wpolczynnika prawego:
 \[
@@ -167,10 +211,48 @@ gdzie Z jest dok\l{}adnym rozwi\k{a}zaniem uk\l{}adu, X rozwi\k{a}zaniem obliczo
 
 \section{Opis programu obliczeniowego}
 
-
-/TODO
+W czasie tworzenia programu obliczeniowego zosta\l{}y stworzone nast\k{e}puj\k{a}ce funkcje:
+\begin{enumerate}
+\item mdoolittle(A)=[U,L]:
 \\
-jak wyskakuje w programie
+przyjmuje za argument macierz kwadratow\k{a} A i wyznacza jej rozk\l{}ad UL
+
+\item invmd(A)=[Ai]:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A i wyznacza jej odwrotno\'s\'c za pomoc\k{a} rozk\l{a}du UL
+ 
+\item solvemd(A,B)=[X]:
+\\
+przyjmuje za argument macierze kwadratowe o tych samych wymiarach A oraz B i wyznacza rozwi\k{a}zanie uk\l{}adu nier\'owno\'sci XA=B za pomoc\k{a} rozk\l{}adu UL
+
+\item detmd(A)=d:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A i wyznacza jej wyznacznik za pomoc\k{a} rozk\l{}adu UL
+
+\item condmd(A,p)=c:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A oraz p-norm\k{e} i wyznacza wska\'znik uwarunkowania macierzy A korzystaj\k{a}c z p-normy i funkcji invmd do wyznaczenia $A^{-1}$
+
+\item edec(A,p)=e:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A oraz p-norm\k{e} i wyznacza b\l{}\k{a}d rozk\l{}adu macierzy A zmodyfikowan\k{a} metod\k{a} Doolittle'a korzystaj\k{a}c z p-normy
+
+\item erel(A,B,p)=e:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-norm\k{e} i wyznacza b\l{a}d wzgl\k{e}dny (korzystaj\k{a}c z p-normy) rozwi\k{a}zania uk\l{}adu XA=B zmodyfikowan\k{a} metod\k{a} Doolittle'a
+
+\item wsppopr(A,B,p)=w:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-norm\k{e} i wyznacza wsp\'o\l{}czynnik poprawno\'sci (korzystaj\k{a}c z p-normy) rozwi\k{a}zania uk\l{}adu XA=B zmodyfikowan\k{a} metod\k{a} Doolitle'a
+
+\item wspstab(A,B,p)=w:
+\\
+przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-norm\k{e} i wyznacza wsp\'o\l{}czynnik stabilno\'sci (korzystaj\k{a}c z p-normy) rozwi\k{a}zania uk\l{}adu XA=B zmodyfikowan\k{a} metod\k{a} Doolitle'a wzgl\k{e}dem rozwi\k{a}zania $X=B\cdot A^{-1}$
+
+\item rR
+\item rL 
+
+\end{enumerate}
 
 \vskip20pt
 
@@ -178,44 +260,12 @@ jak wyskakuje w programie
 
 \noindent 
 
-Najwa\.zniejsze wyniki zestawiono w tabeli \ref{Tabela z wynikami algorytmu 1}.
-
-\bigskip
-
-\begin{table}[h!]
-\caption{\footnotesize Moje wyniki} %\vskip1ex
-\renewcommand{\arraystretch}{1.1}
-\centering\begin{tabular}{|c|c|c|c|c|}
-\hline $N$ & rozwi\k azanie & rozwi\k azanie & b\l \k ad \\
-& dok\l adne & przybli\.zone & \\
-\hline 10 & 1.6396 & 1.6395 & $1.6597e\!-\!04$ \\
-\hline 12 & 6.4839 & 6.4839 & $6.2312e\!-\!05$ \\
-\hline 14 & 6.4597 & 6.4597 & $8.8147e\!-\!05$ \\
-\hline 16 & 1.0575 & 1.0674 & $1.2730e\!-\!04$ \\
-\hline 18 & 3.0060 & 3.0061 & $4.3985e\!-\!04$ \\
-\hline 20 & 7.1352 & 7.1351 & $7.6212e\!-\!04$ \\
-\hline
-\end{tabular}
-\label{Tabela z wynikami algorytmu 1}
-\end{table}
-
-
-\vskip2ex
-
-Jako\'s ma\l o tych przyk\l ad\'ow. O wiem, dodam obrazek.
-
-
-
+/ToDo 
 
 
 \section{Analiza wynik\'ow}
 
-Metoda zdaje si\k e dzia\l a\'c w wi\k ekszo\'sci przypadk\'ow.
-Niekiedy jednak nie dzia\l a, lub dzia\l a niepoprawnie. Przyczyny
-tego zjawiska są mi bliżej nieznane. Mo\.ze te elektrolityczne
-krasnoludki, kt\'ore tak naprawd\k e wykonuj\k a obliczenia w
-komputerze, czasami strajkuj\k a. Trzeba je lepiej karmi\'c.
-
+Cos tu sie zanalizuje
 
 {\small
 \begin{thebibliography}{11}
