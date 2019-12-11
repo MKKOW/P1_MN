@@ -1,5 +1,5 @@
 function [Ai]=invmd(A)
-%Funkcja wyznacza odwrotnoœæ macierzy korzystaj¹c ze zmodyfikowanej
+%Funkcja wyznacza odwrotnoÅ“Ã¦ macierzy korzystajÂ¹c ze zmodyfikowanej
 %metody Doolittle'a
 %A^(-1)=invmd(A)
     if nargin<1
@@ -28,7 +28,7 @@ function [Ai]=invmd(A)
 
     %Odwracanie L
     for i=1:n
-       % Li(i,i)=1/L(i,i);
+       Li(i,i)=1/L(i,i);
        Li(i,1:(i-1))=(-L(i,1:(i-1))*Li(1:(i-1),1:(i-1)))/L(i,i);
     end
     %Odwracanie U
