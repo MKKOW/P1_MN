@@ -130,7 +130,7 @@ Wyznaczaj\k{a}c odwrotno\'s\'c macierzy A r\'ownie\.z skorzystamy z wyznaczonych
 \[
 A^{-1}=(UL)^{-1}=L^{-1}U^{-1}
 \]
-gdzie $L^{-1}$ i $U^{-1}$ istniej\k{a} tylko, gdy $det(U)\neq 0$, czyli gdy \.zadna warto\'s\'c na gl\'ownej przek\k{a}tnej macierzy U nie jest r\'owny 0.
+gdzie $L^{-1}$ i $U^{-1}$ istniej\k{a} tylko, gdy $det(U)\neq 0$, czyli gdy \.zadna warto\'s\'c na gl\'ownej przek\k{a}tnej macierzy U nie jest r\'owna 0.
 \\
 Niech 
 \[
@@ -194,14 +194,6 @@ wsp_{stab}=\frac{\Vert X-Z \Vert}{\Vert Z \Vert cond(A)}
 \[
 wsp_{popr}=\frac{\Vert B-XA \Vert}{\Vert A \Vert \Vert X \Vert}
 \]
-\item jakiegos kurna wpolczynnika prawego:
-\[
-r_{R}=\frac{\Vert AA^{-1}-I\Vert}{\Vert A \Vert \Vert A^{-1} \Vert}
-\]
-\item jakiegos kurna wspolczynnika lewego:
-\[
-r_{L}=\frac{\Vert A^{-1}A-I\Vert}{\Vert A \Vert \Vert A^{-1} \Vert}
-\]
 gdzie Z jest dok\l{}adnym rozwi\k{a}zaniem uk\l{}adu, X rozwi\k{a}zaniem obliczonym numerycznie przybli\.zeniem wyznaczonym naszym algorytmem,a $A^{-1}$ wyznaczon\k{a} przez nas odwrotno\'sci\k{a} macierzy A. 
 
 
@@ -228,14 +220,9 @@ przyjmuje za argument macierze kwadratowe o tych samych wymiarach A oraz B i wyz
 \item detmd(A)=d:
 \\
 przyjmuje za argument macierz kwadratow\k{a} A i wyznacza jej wyznacznik za pomoc\k{a} rozk\l{}adu UL
-
-\item condmd(A,p)=c:
 \\
-przyjmuje za argument macierz kwadratow\k{a} A oraz p-norm\k{e} i wyznacza wska\'znik uwarunkowania macierzy A korzystaj\k{a}c z p-normy i funkcji invmd do wyznaczenia $A^{-1}$
-
 \item edec(A,p)=e:
-\\
-przyjmuje za argument macierz kwadratow\k{a} A oraz p-norm\k{e} i wyznacza b\l{}\k{a}d rozk\l{}adu macierzy A zmodyfikowan\k{a} metod\k{a} Doolittle'a korzystaj\k{a}c z p-normy
+\\przyjmuje za argument macierz kwadratow\k{a} A oraz p-norm\k{e} i wyznacza b\l{}\k{a}d rozk\l{}adu macierzy A zmodyfikowan\k{a} metod\k{a} Doolittle'a korzystaj\k{a}c z p-normy
 
 \item erel(A,B,p)=e:
 \\
@@ -249,8 +236,6 @@ przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-
 \\
 przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-norm\k{e} i wyznacza wsp\'o\l{}czynnik stabilno\'sci (korzystaj\k{a}c z p-normy) rozwi\k{a}zania uk\l{}adu XA=B zmodyfikowan\k{a} metod\k{a} Doolitle'a wzgl\k{e}dem rozwi\k{a}zania $X=B\cdot A^{-1}$
 
-\item rR
-\item rL 
 
 \end{enumerate}
 
@@ -259,13 +244,261 @@ przyjmuje za argument macierz kwadratow\k{a} A, macierz kwadratow\k{a} B oraz p-
 \section{Przyk\l ady obliczeniowe}
 
 \noindent 
+By zbada\'c poprawno\'s\'c naszego programu sprawdzimy jego dzia\l{}anie dla pewnych konkretnych typ\'ow macierzy:
+\begin{enumerate}
+\item Macierz Hilberta:
+\\
+Tworzymy j\k{a} za pomoc\k{a} funkcji hilb(n), kt\'ora tworzy macierz kwadratow\k{a} Hilberta o n kolumnach i wierszach
+\item Macierz Wilkinsona:
+\\
+Tworzymy j\k{a} za pomoc\k{a} funkcji wilkinson(n), kt\'ora tworzy macierz kwadratow\k{a} Wilkinsona o n kolumnach i wierszach.
+\item Macierz magiczna:
+\\
+Tworzymy j\k{a} za pomoc\k{a} funkcji magic(n), kt\'ora tworzy macierz kwadratow\k{a} magiczn\k{a} o n kolumnach i wierszach.
+\end{enumerate}
+Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
+\begin{enumerate}
+\item opcja pierwsza:
+\\macierz Hilberta o wymiarach takich jak macierz A
+\item opcja druga:
+\\macierz wilkinsona o wymiarach takich jak macierz A 
+\end{enumerate}
+\bigskip
+\begin{table}[h!]
+\caption{\footnotesize Macierz Hilberta i opcja pierwsza macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & $524.0568$ & 0 & $3.6864e-15$ & $7.0343e-18$ & 0 \\
+\hline 5 & $4.7661e+05$ & $3.9960e-16$ & $1.6140e-12$ & $3.3864e-18$ & $2.2474e-16$ \\
+\hline 7 & $4.7537e+08$ & $6.4816e-16$ & $3.3720e-09$ & $7.0934e-18$ & $1.3677e-16$ \\
+\hline 9 & $4.9315e+11$ & $5.9270e-15$ & $3.6043e-06$ & $7.3086e-18$ & $4.8327e-17$ \\
+\hline 11 & $5.2202e+14$ & $3.7619e-14$ & 0.0037 & $7.1253e-18$ & $6.4185e-17$ \\
+\hline
+\end{tabular}
+\label{Hilbert1}
+\end{table}
 
-/ToDo 
+\begin{table}[h!]
+\caption{\footnotesize Macierz Wilkinsona i opcja pierwsza macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & 2 & 0 & 1 & 0.5 & $3.3161e-17$ \\
+\hline 5 & 7.4897 & 0 & 1 & 0.1335 & $5.2256e-17$  \\
+\hline 7 &  14.0383 & $2.9515e-17$ & 1 & 0.0712 & $3.4306e-17$  \\
+\hline 9 &  18.6369 & $2.3387e-17$ & 1 & 0.0537 & $3.0899e-17$  \\
+\hline 11 &  22.6370 & $1.9321e-17$ & 1 & 0.0442 & $3.9526e-17$  \\
+\hline
+\end{tabular}
+\label{Wilkinson1}
+\end{table}
 
+\begin{table}[h!]
+\caption{\footnotesize Macierz Magiczna i opcja pierwsza macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & 4.3301 & 0 & 1 & 0.2309 & $8.0675e-17$ \\
+\hline 5 & 5.4618 & $1.0931e-16$ & 1 & 0.1831 & $1.1443e-16$  \\
+\hline 7 &  7.1113 & $9.4498e-16$ & 1 & 0.1406 & $2.4545e-16$  \\
+\hline 9 &  9.1017 & $1.8403e-15$ & 1 & 0.1099 & $2.9130e-16$  \\
+\hline 11 &  11.1021 & 0.9180 & 1 & 0.0901 & 0.0774  \\
+\hline
+\end{tabular}
+\label{Magic1}
+\end{table}
 
+\begin{table}[h!]
+\caption{\footnotesize Macierz Hilberta i opcja druga macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & 4.3301 & 0 & 1 & 0.2309 & $8.0675e-17$ \\
+\hline 5 & $4.7661e+05$ & $3.9960e-16$ & $4.3481e+05$ & 0.9123 & $1.4980e-17$ \\
+\hline 7 & $4.7537e+08$ & $6.4816e-16$ & $4.4717e+08$ & $0.9407$ & $5.4010e-18$ \\
+\hline 9 & $4.9315e+11$ & $5.9270e-15$ & $6.1403e+11$ & $1.2451$ & $1.0786e-17$ \\
+\hline 11 & $5.2202e+14$ & $3.7619e-14$ & $7.9062e+14$ & $1.5145$ & $9.7706e-18$ \\
+\hline
+\end{tabular}
+\label{Hilbert2}
+\end{table}
+
+\begin{table}[h!]
+\caption{\footnotesize Macierz Wilkinsona i opcja druga macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & 2 & 0 & 0 & 0 & 0 \\
+\hline 5 & 7.4897 & 0 & $4.1633e-17$ & $5.5588e-18$ & 0  \\
+\hline 7 &  14.0383 & $2.9515e-17$ & $9.0653e-17$ & $6.4575e-18$ & 0  \\
+\hline 9 &  18.6369 & $2.3387e-17$ & $2.0414e-16$ & $1.0964e-17$ & $1.3865e-33$  \\
+\hline 11 &  22.6370 & $1.9321e-17$ & $2.1708e-16$ & $9.5894e-18$ & $3.8642e-17$  \\
+\hline
+\end{tabular}
+\label{Wilkinson2}
+\end{table}
+
+\begin{table}[h!]
+\caption{\footnotesize Macierz Magiczna i opcja druga macierzy B}%vskip1ex
+\renewcommand{\arraystretch}{1.1}
+\centering\begin{tabular}{|c|c|c|c|c|c|}
+\hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
+\hline 3 & 4.3301 & 0 & 0.9822 & 0.2269 & $2.4016e-16$ \\
+\hline 5 & 5.4618 & $1.0931e-16$ & 0.9993 & 0.1830 & $1.9806e-16$  \\
+\hline 7 &  7.1113 & $9.4498e-16$ & 0.9999 & 0.1406 & $4.4752e-16$  \\
+\hline 9 &  9.1017 & $1.8403e-15$ & 1 & 0.1099 & $4.4632e-16$  \\
+\hline 11 &  11.1021 & 0.9180 & 0.9999 & 0.0901 & 0.1154  \\
+\hline
+\end{tabular}
+\label{Magic2}
+\end{table}
+
+\newpage
+.
+\newpage
+Dok\l{}adne rozwi\k{a}zania dla n=5 w ka\.zdym z powy\.zszych przypadk\'ow:
+\begin{enumerate}
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\[
+X=\begin{pmatrix}
+1.0000 & 0.0000 & -0.0000 & 0.0000 & -0.0000 \\
+0 & 1.0000 & 0 & 0 & 0 \\
+0 & 0 & 1.0000 & 0 & 0 \\
+0 & 0 & 0 & 1.0000 & 0 \\
+0 & 0 & 0 & 0 & 1.0000
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\[
+X=\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\[
+X=\begin{pmatrix}
+0.4917 & 0.0167 & -0.0083 & 0.3167 & -0.0583 \\
+0.2042 & 0.0917 & 0.0375 & 0.1583 & 0.0042 \\
+0.1226 & 0.0881 & 0.0393 & 0.1119 & 0.0155 \\
+0.0860 & 0.0780 & 0.0360 & 0.0887 & 0.0182 \\
+0.0657 & 0.0687 & 0.0323 & 0.0742 & 0.0185
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\[
+X=\begin{pmatrix}
+0.4917 & 0.0167 & -0.0083 & 0.3167 & -0.0583 \\
+0.2042 & 0.0917 & 0.0375 & 0.1583 & 0.0042 \\
+0.1226 & 0.0881 & 0.0393 & 0.1119 & 0.0155 \\
+0.0860 & 0.0780 & 0.0360 & 0.0887 & 0.0182 \\
+0.0657 & 0.0687 & 0.0323 & 0.0742 & 0.0185
+\end{pmatrix}.
+\]
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\[
+X=\begin{pmatrix}
+0.0083 & 0.0329 & -0.0257 & 0.0104 & 0.0092 \\
+0.0057 & 0.0134 & -0.0094 & 0.0068 & 0.0057 \\
+0.0043 & 0.0080 & -0.0046 & 0.0050 & 0.0042 \\
+0.0034 & 0.0055 & -0.0025 & 0.0039 & 0.0033 \\
+0.0028 & 0.0042 & -0.0014 & 0.0032 & 0.0027
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\[
+X=\begin{pmatrix}
+0.0083 & 0.0329 & -0.0257 & 0.0104 & 0.0092 \\
+0.0057 & 0.0134 & -0.0094 & 0.0068 & 0.0057 \\
+0.0043 & 0.0080 & -0.0046 & 0.0050 & 0.0042 \\
+0.0034 & 0.0055 & -0.0025 & 0.0039 & 0.0033 \\
+0.0028 & 0.0042 & -0.0014 & 0.0032 & 0.0027
+\end{pmatrix}.
+\]
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\\ 1.0e+05 *
+\[ 
+X=\begin{pmatrix}
+-0.0025 & 0.0420 & -0.1680 & 0.2408 & -0.1134 \\
+0.0077 & -0.1440 & 0.6153 & -0.9212 & 0.4473 \\
+-0.0170 & 0.3168 & -1.3650 & 2.0608 & -1.0080 \\
+0.0028 & -0.0462 & 0.1848 & -0.2660 & 0.1260 \\
+-0.0014 & 0.0168 & -0.0420 & 0.0280 & 0.0000
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\\ 1.0e+05 *
+\[ 
+X=\begin{pmatrix}
+-0.0025 & 0.0420 & -0.1680 & 0.2408 & -0.1134 \\
+0.0077 & -0.1440 & 0.6153 & -0.9212 & 0.4473 \\
+-0.0170 & 0.3168 & -1.3650 & 2.0608 & -1.0080 \\
+0.0028 & -0.0462 & 0.1848 & -0.2660 & 0.1260 \\
+-0.0014 & 0.0168 & -0.0420 & 0.0280 & 0.0000
+\end{pmatrix}.
+\]
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\[
+X=\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\[
+X=\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+\item przypadek:
+\\
+rozwi\k{a}zanie wyznaczone przez program:
+\[
+X=\begin{pmatrix}
+0.0333 & 0.0650 & -0.0754 & 0.0150 & 0.0083 \\
+0.0079 & 0.0169 & -0.0369 & 0.0169 & 0.0413 \\
+0.0478 & -0.0438 & 0.0062 & 0.0562 & -0.0355 \\
+-0.0228 & 0.0015 & 0.0554 & 0.0015 & 0.0105 \\
+0.0102 & 0.0035 & 0.0938 & -0.0465 & -0.0148
+\end{pmatrix}.
+\]
+rozwi\k{a}zanie dok\l{}adne:
+\[
+X=\begin{pmatrix}
+0.0333 & 0.0650 & -0.0754 & 0.0150 & 0.0083 \\
+0.0079 & 0.0169 & -0.0369 & 0.0169 & 0.0413 \\
+0.0478 & -0.0438 & 0.0062 & 0.0562 & -0.0355 \\
+-0.0228 & 0.0015 & 0.0554 & 0.0015 & 0.0105 \\
+0.0102 & 0.0035 & 0.0938 & -0.0465 & -0.0148
+\end{pmatrix}.
+\]
+
+\end{enumerate}
 \section{Analiza wynik\'ow}
 
-Cos tu sie zanalizuje
+Cos tu sie zanalizuje, ale chyba dopiero po poprawieniu invmd.
 
 {\small
 \begin{thebibliography}{11}
