@@ -8,7 +8,7 @@ function [Ai]=invmd(A)
     if nargin>1
         error('Too many input arguments.');
     end
-    if detmd(A) < eps
+    if abs(detmd(A)) < eps
         error('Matrix is singular to working precision.');
     end
     if size(A,1)~=size(A,2)
