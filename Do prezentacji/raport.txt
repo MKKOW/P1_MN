@@ -1,0 +1,1389 @@
+prezentacja
+PREZENTACJA ZMODYFIKOWANEJ METODY DOOLITTLE ROZWI¥ZYWANIA UK£ADU XA=B
+TEST DLA A BÊD¥CA MACIERZ¥ HILBERTA I B BÊDAC¥ MACIERZ¥ HILBERTA
+n= 3
+
+cond =
+
+   5.2406e+02
+
+
+edec =
+
+     0
+
+
+erel =
+
+   3.6864e-15
+
+
+wspstab =
+
+   7.0343e-18
+
+
+wsppopr =
+
+     0
+
+
+det_md =
+
+   4.6296e-04
+
+
+det_ =
+
+   4.6296e-04
+
+
+det_error =
+
+   8.1315e-19
+
+
+det_relative_error =
+
+   1.7564e-15
+
+n= 5
+
+cond =
+
+   4.7661e+05
+
+
+edec =
+
+   3.9960e-16
+
+
+erel =
+
+   1.6260e-12
+
+
+wspstab =
+
+   3.4116e-18
+
+
+wsppopr =
+
+   2.2474e-16
+
+
+det_md =
+
+   3.7493e-12
+
+
+det_ =
+
+   3.7493e-12
+
+
+det_error =
+
+   6.0294e-24
+
+
+det_relative_error =
+
+   1.6081e-12
+
+n= 7
+
+cond =
+
+   4.7537e+08
+
+
+edec =
+
+   6.4816e-16
+
+
+erel =
+
+   4.4031e-09
+
+
+wspstab =
+
+   9.2625e-18
+
+
+wsppopr =
+
+   1.3677e-16
+
+
+det_md =
+
+   4.8358e-25
+
+
+det_ =
+
+   4.8358e-25
+
+
+det_error =
+
+   8.6363e-34
+
+
+det_relative_error =
+
+     0
+
+n= 9
+
+cond =
+
+   4.9315e+11
+
+
+edec =
+
+   5.9273e-15
+
+
+erel =
+
+   3.8852e-06
+
+
+wspstab =
+
+   7.8783e-18
+
+
+wsppopr =
+
+   2.6221e-16
+
+
+det_md =
+
+   9.7203e-43
+
+
+det_ =
+
+   9.7203e-43
+
+
+det_error =
+
+   5.5712e-49
+
+
+det_relative_error =
+
+     0
+
+n= 11
+
+cond =
+
+   5.2202e+14
+
+
+edec =
+
+   3.7619e-14
+
+
+erel =
+
+   4.1508e-03
+
+
+wspstab =
+
+   7.9515e-18
+
+
+wsppopr =
+
+   6.4185e-17
+
+
+det_md =
+
+   3.0226e-65
+
+
+det_ =
+
+   3.0270e-65
+
+
+det_error =
+
+   4.3512e-68
+
+
+det_relative_error =
+
+     0
+
+TEST DLA A BÊD¥CA MACIERZ¥ WILKINSONA I B BÊDAC¥ MACIERZ¥ HILBERTA
+n= 3
+
+cond =
+
+   2.0000e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   8.6818e-17
+
+
+wspstab =
+
+   4.3409e-17
+
+
+wsppopr =
+
+   3.3161e-17
+
+
+det_md =
+
+    -2
+
+
+det_ =
+
+    -2
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 5
+
+cond =
+
+   7.4897e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   2.9763e-16
+
+
+wspstab =
+
+   3.9739e-17
+
+
+wsppopr =
+
+   5.2256e-17
+
+
+det_md =
+
+    -4
+
+
+det_ =
+
+    -4
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 7
+
+cond =
+
+   1.4038e+01
+
+
+edec =
+
+   2.9515e-17
+
+
+erel =
+
+   3.5050e-16
+
+
+wspstab =
+
+   2.4967e-17
+
+
+wsppopr =
+
+   3.4306e-17
+
+
+det_md =
+
+   -20
+
+
+det_ =
+
+   -20
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 9
+
+cond =
+
+   1.8637e+01
+
+
+edec =
+
+   2.3387e-17
+
+
+erel =
+
+   1.7965e-16
+
+
+wspstab =
+
+   9.6396e-18
+
+
+wsppopr =
+
+   3.0899e-17
+
+
+det_md =
+
+  -2.5200e+02
+
+
+det_ =
+
+  -252
+
+
+det_error =
+
+   5.6843e-14
+
+
+det_relative_error =
+
+   2.2557e-16
+
+n= 11
+
+cond =
+
+   2.2637e+01
+
+
+edec =
+
+   1.9321e-17
+
+
+erel =
+
+   3.1076e-16
+
+
+wspstab =
+
+   1.3728e-17
+
+
+wsppopr =
+
+   3.9526e-17
+
+
+det_md =
+
+  -5.6100e+03
+
+
+det_ =
+
+       -5610
+
+
+det_error =
+
+   1.8190e-12
+
+
+det_relative_error =
+
+   3.2424e-16
+
+TEST DLA A BÊD¥CA MACIERZ¥ MAGICZN¥ I B BÊDAC¥ MACIERZ¥ HIBLERTA
+n= 3
+
+cond =
+
+   4.3301e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   1.6984e-16
+
+
+wspstab =
+
+   3.9224e-17
+
+
+wsppopr =
+
+   8.0675e-17
+
+
+det_md =
+
+  -360
+
+
+det_ =
+
+  -360
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 5
+
+cond =
+
+   5.4618e+00
+
+
+edec =
+
+   1.0931e-16
+
+
+erel =
+
+   5.8306e-16
+
+
+wspstab =
+
+   1.0675e-16
+
+
+wsppopr =
+
+   1.1443e-16
+
+
+det_md =
+
+   5.0700e+06
+
+
+det_ =
+
+   5.0700e+06
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 7
+
+cond =
+
+   7.1113e+00
+
+
+edec =
+
+   9.4498e-16
+
+
+erel =
+
+   1.2273e-15
+
+
+wspstab =
+
+   1.7259e-16
+
+
+wsppopr =
+
+   2.4545e-16
+
+
+det_md =
+
+  -3.4805e+11
+
+
+det_ =
+
+  -3.4805e+11
+
+
+det_error =
+
+   1.8311e-04
+
+
+det_relative_error =
+
+   5.2609e-16
+
+n= 9
+
+cond =
+
+   9.1017e+00
+
+
+edec =
+
+   1.3065e-15
+
+
+erel =
+
+   1.4625e-15
+
+
+wspstab =
+
+   1.6068e-16
+
+
+wsppopr =
+
+   1.9008e-16
+
+
+det_md =
+
+   7.5036e+16
+
+
+det_ =
+
+   7.5036e+16
+
+
+det_error =
+
+    32
+
+
+det_relative_error =
+
+   4.2646e-16
+
+n= 11
+
+cond =
+
+   1.1102e+01
+
+
+edec =
+
+   9.1799e-01
+
+
+erel =
+
+   8.4061e-01
+
+
+wspstab =
+
+   7.5716e-02
+
+
+wsppopr =
+
+   7.7411e-02
+
+
+det_md =
+
+  -3.8391e+22
+
+
+det_ =
+
+  -4.1038e+22
+
+
+det_error =
+
+   2.6468e+21
+
+
+det_relative_error =
+
+   6.4496e-02
+
+TEST DLA A BÊD¥CA MACIERZ¥ HILBERTA I B BÊDAC¥ MACIERZ¥ WILKONSONA
+n= 3
+
+cond =
+
+   5.2406e+02
+
+
+edec =
+
+     0
+
+
+erel =
+
+   3.6864e-15
+
+
+wspstab =
+
+   7.0343e-18
+
+
+wsppopr =
+
+     0
+
+
+det_md =
+
+   4.6296e-04
+
+
+det_ =
+
+   4.6296e-04
+
+
+det_error =
+
+   8.1315e-19
+
+
+det_relative_error =
+
+   1.7564e-15
+
+n= 5
+
+cond =
+
+   4.7661e+05
+
+
+edec =
+
+   3.9960e-16
+
+
+erel =
+
+   1.6260e-12
+
+
+wspstab =
+
+   3.4116e-18
+
+
+wsppopr =
+
+   2.2474e-16
+
+
+det_md =
+
+   3.7493e-12
+
+
+det_ =
+
+   3.7493e-12
+
+
+det_error =
+
+   6.0294e-24
+
+
+det_relative_error =
+
+   1.6081e-12
+
+n= 7
+
+cond =
+
+   4.7537e+08
+
+
+edec =
+
+   6.4816e-16
+
+
+erel =
+
+   4.4031e-09
+
+
+wspstab =
+
+   9.2625e-18
+
+
+wsppopr =
+
+   1.3677e-16
+
+
+det_md =
+
+   4.8358e-25
+
+
+det_ =
+
+   4.8358e-25
+
+
+det_error =
+
+   8.6363e-34
+
+
+det_relative_error =
+
+     0
+
+n= 9
+
+cond =
+
+   4.9315e+11
+
+
+edec =
+
+   5.9273e-15
+
+
+erel =
+
+   3.8852e-06
+
+
+wspstab =
+
+   7.8783e-18
+
+
+wsppopr =
+
+   2.6221e-16
+
+
+det_md =
+
+   9.7203e-43
+
+
+det_ =
+
+   9.7203e-43
+
+
+det_error =
+
+   5.5712e-49
+
+
+det_relative_error =
+
+     0
+
+n= 11
+
+cond =
+
+   5.2202e+14
+
+
+edec =
+
+   3.7619e-14
+
+
+erel =
+
+   4.1508e-03
+
+
+wspstab =
+
+   7.9515e-18
+
+
+wsppopr =
+
+   6.4185e-17
+
+
+det_md =
+
+   3.0226e-65
+
+
+det_ =
+
+   3.0270e-65
+
+
+det_error =
+
+   4.3512e-68
+
+
+det_relative_error =
+
+     0
+
+TEST DLA A BÊD¥CA MACIERZ¥ WILKINSONA I B BÊDAC¥ MACIERZ¥ WILKONSONA
+n= 3
+
+cond =
+
+   2.0000e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   8.6818e-17
+
+
+wspstab =
+
+   4.3409e-17
+
+
+wsppopr =
+
+   3.3161e-17
+
+
+det_md =
+
+    -2
+
+
+det_ =
+
+    -2
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 5
+
+cond =
+
+   7.4897e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   2.9763e-16
+
+
+wspstab =
+
+   3.9739e-17
+
+
+wsppopr =
+
+   5.2256e-17
+
+
+det_md =
+
+    -4
+
+
+det_ =
+
+    -4
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 7
+
+cond =
+
+   1.4038e+01
+
+
+edec =
+
+   2.9515e-17
+
+
+erel =
+
+   3.5050e-16
+
+
+wspstab =
+
+   2.4967e-17
+
+
+wsppopr =
+
+   3.4306e-17
+
+
+det_md =
+
+   -20
+
+
+det_ =
+
+   -20
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 9
+
+cond =
+
+   1.8637e+01
+
+
+edec =
+
+   2.3387e-17
+
+
+erel =
+
+   1.7965e-16
+
+
+wspstab =
+
+   9.6396e-18
+
+
+wsppopr =
+
+   3.0899e-17
+
+
+det_md =
+
+  -2.5200e+02
+
+
+det_ =
+
+  -252
+
+
+det_error =
+
+   5.6843e-14
+
+
+det_relative_error =
+
+   2.2557e-16
+
+n= 11
+
+cond =
+
+   2.2637e+01
+
+
+edec =
+
+   1.9321e-17
+
+
+erel =
+
+   3.1076e-16
+
+
+wspstab =
+
+   1.3728e-17
+
+
+wsppopr =
+
+   3.9526e-17
+
+
+det_md =
+
+  -5.6100e+03
+
+
+det_ =
+
+       -5610
+
+
+det_error =
+
+   1.8190e-12
+
+
+det_relative_error =
+
+   3.2424e-16
+
+TEST DLA A BÊD¥CA MACIERZ¥ MAGICZN¥ I B BÊDAC¥ MACIERZ¥ WILKONSONA
+n= 3
+
+cond =
+
+   4.3301e+00
+
+
+edec =
+
+     0
+
+
+erel =
+
+   1.6984e-16
+
+
+wspstab =
+
+   3.9224e-17
+
+
+wsppopr =
+
+   8.0675e-17
+
+
+det_md =
+
+  -360
+
+
+det_ =
+
+  -360
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 5
+
+cond =
+
+   5.4618e+00
+
+
+edec =
+
+   1.0931e-16
+
+
+erel =
+
+   5.8306e-16
+
+
+wspstab =
+
+   1.0675e-16
+
+
+wsppopr =
+
+   1.1443e-16
+
+
+det_md =
+
+   5.0700e+06
+
+
+det_ =
+
+   5.0700e+06
+
+
+det_error =
+
+     0
+
+
+det_relative_error =
+
+     0
+
+n= 7
+
+cond =
+
+   7.1113e+00
+
+
+edec =
+
+   9.4498e-16
+
+
+erel =
+
+   1.2273e-15
+
+
+wspstab =
+
+   1.7259e-16
+
+
+wsppopr =
+
+   2.4545e-16
+
+
+det_md =
+
+  -3.4805e+11
+
+
+det_ =
+
+  -3.4805e+11
+
+
+det_error =
+
+   1.8311e-04
+
+
+det_relative_error =
+
+   5.2609e-16
+
+n= 9
+
+cond =
+
+   9.1017e+00
+
+
+edec =
+
+   1.3065e-15
+
+
+erel =
+
+   1.4625e-15
+
+
+wspstab =
+
+   1.6068e-16
+
+
+wsppopr =
+
+   1.9008e-16
+
+
+det_md =
+
+   7.5036e+16
+
+
+det_ =
+
+   7.5036e+16
+
+
+det_error =
+
+    32
+
+
+det_relative_error =
+
+   4.2646e-16
+
+n= 11
+
+cond =
+
+   1.1102e+01
+
+
+edec =
+
+   9.1799e-01
+
+
+erel =
+
+   8.4061e-01
+
+
+wspstab =
+
+   7.5716e-02
+
+
+wsppopr =
+
+   7.7411e-02
+
+
+det_md =
+
+  -3.8391e+22
+
+
+det_ =
+
+  -4.1038e+22
+
+
+det_error =
+
+   2.6468e+21
+
+
+det_relative_error =
+
+   6.4496e-02
+
+diary off

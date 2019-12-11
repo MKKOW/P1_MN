@@ -116,7 +116,7 @@ wyznaczaj\k{a}c kolejne kolumny macierzy zaczynaj\k{a}c od n-tej.
 \\
 Wyznacznik macierzy A wyznaczymy dzi\k{e}ki zale\.zno\'sci:
 \[
-det(A)=det(UL)=det(U)*det(L)
+det(A)=det(UL)=det(U)\cdot det(L)
 \]
 Natomiast z w\l{}asno\'sci macierzy tr\'ojk\k{a}tnych mamy:
 \[
@@ -154,7 +154,7 @@ u_{11}' & u_{12}' & u_{13}' & \ldots & u_{1n}' \\
 \]
 Z w\l{}asno\'sci macierzy tr\'ojk\k{a}tnych mamy:
 \[
-l_{ii}'=1
+l_{ii}'=\frac{1}{l_{ii}}
 \]
 oraz
 \[
@@ -162,7 +162,7 @@ u_{ii}'=\frac{1}{u_{ii}}
 \]
 Pozosta\l{}e elementy macierzy $L^{-1}$ oraz $U^{-1}$ wyznaczymy, wykorzystuj\k{a}c wzory:
 \[
-l_{ij}'=-\sum_{k=j+1}^n l_{ik}l_{kj}'
+l_{ij}'=-\frac{\sum_{k=j+1}^n l_{ik}l_{kj}'}{l_{ii}}
 \]
 oraz
 \[
@@ -269,11 +269,11 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & $524.0568$ & 0 & $3.6864e-15$ & $7.0343e-18$ & 0 \\
-\hline 5 & $4.7661e+05$ & $3.9960e-16$ & $1.6140e-12$ & $3.3864e-18$ & $2.2474e-16$ \\
-\hline 7 & $4.7537e+08$ & $6.4816e-16$ & $3.3720e-09$ & $7.0934e-18$ & $1.3677e-16$ \\
-\hline 9 & $4.9315e+11$ & $5.9270e-15$ & $3.6043e-06$ & $7.3086e-18$ & $4.8327e-17$ \\
-\hline 11 & $5.2202e+14$ & $3.7619e-14$ & 0.0037 & $7.1253e-18$ & $6.4185e-17$ \\
+\hline $3$ & $524.0568$ & $0$ & $3.6864e-15$ & $7.0343e-18$ & $0$ \\
+\hline $5$ & $476607.2502$ & $3.996e-16$ & $1.626e-12$ & $3.4116e-18$ & $2.2474e-16$ \\
+\hline $7$ & $475367356.9114$ & $6.4816e-16$ & $4.4031e-09$ & $9.2625e-18$ & $1.3677e-16$ \\
+\hline $9$ & $493153404551.0121$ & $5.9273e-15$ & $3.8852e-06$ & $7.8783e-18$ & $2.6221e-16$ \\
+\hline $11$ & $522020733204514.8$ & $3.7619e-14$ & $0.0041508$ & $7.9515e-18$ & $6.4185e-17$ \\
 \hline
 \end{tabular}
 \label{Hilbert1}
@@ -284,11 +284,11 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & 2 & 0 & 1 & 0.5 & $3.3161e-17$ \\
-\hline 5 & 7.4897 & 0 & 1 & 0.1335 & $5.2256e-17$  \\
-\hline 7 &  14.0383 & $2.9515e-17$ & 1 & 0.0712 & $3.4306e-17$  \\
-\hline 9 &  18.6369 & $2.3387e-17$ & 1 & 0.0537 & $3.0899e-17$  \\
-\hline 11 &  22.6370 & $1.9321e-17$ & 1 & 0.0442 & $3.9526e-17$  \\
+\hline $3$ & $2$ & $0$ & $8.6818e-17$ & $4.3409e-17$ & $3.3161e-17$ \\
+\hline $5$ & $7.4897$ & $0$ & $2.9763e-16$ & $3.9739e-17$ & $5.2256e-17$ \\
+\hline $7$ & $14.0383$ & $2.9515e-17$ & $3.505e-16$ & $2.4967e-17$ & $3.4306e-17$ \\
+\hline $9$ & $18.6369$ & $2.3387e-17$ & $1.7965e-16$ & $9.6396e-18$ & $3.0899e-17$ \\
+\hline $11$ & $22.637$ & $1.9321e-17$ & $3.1076e-16$ & $1.3728e-17$ & $3.9526e-17$ \\
 \hline
 \end{tabular}
 \label{Wilkinson1}
@@ -299,11 +299,11 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & 4.3301 & 0 & 1 & 0.2309 & $8.0675e-17$ \\
-\hline 5 & 5.4618 & $1.0931e-16$ & 1 & 0.1831 & $1.1443e-16$  \\
-\hline 7 &  7.1113 & $9.4498e-16$ & 1 & 0.1406 & $2.4545e-16$  \\
-\hline 9 &  9.1017 & $1.8403e-15$ & 1 & 0.1099 & $2.9130e-16$  \\
-\hline 11 &  11.1021 & 0.9180 & 1 & 0.0901 & 0.0774  \\
+\hline $3$ & $4.3301$ & $0$ & $1.6984e-16$ & $3.9224e-17$ & $8.0675e-17$ \\
+\hline $5$ & $5.4618$ & $1.0931e-16$ & $5.8306e-16$ & $1.0675e-16$ & $1.1443e-16$ \\
+\hline $7$ & $7.1113$ & $9.4498e-16$ & $1.2273e-15$ & $1.7259e-16$ & $2.4545e-16$ \\
+\hline $9$ & $9.1017$ & $1.3065e-15$ & $1.4625e-15$ & $1.6068e-16$ & $1.9008e-16$ \\
+\hline $11$ & $11.1021$ & $0.91799$ & $0.84061$ & $0.075716$ & $0.077411$ \\
 \hline
 \end{tabular}
 \label{Magic1}
@@ -314,11 +314,11 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & 4.3301 & 0 & 1 & 0.2309 & $8.0675e-17$ \\
-\hline 5 & $4.7661e+05$ & $3.9960e-16$ & $4.3481e+05$ & 0.9123 & $1.4980e-17$ \\
-\hline 7 & $4.7537e+08$ & $6.4816e-16$ & $4.4717e+08$ & $0.9407$ & $5.4010e-18$ \\
-\hline 9 & $4.9315e+11$ & $5.9270e-15$ & $6.1403e+11$ & $1.2451$ & $1.0786e-17$ \\
-\hline 11 & $5.2202e+14$ & $3.7619e-14$ & $7.9062e+14$ & $1.5145$ & $9.7706e-18$ \\
+\hline $3$ & $524.0568$ & $0$ & $3.6864e-15$ & $7.0343e-18$ & $0$ \\
+\hline $5$ & $476607.2502$ & $3.996e-16$ & $1.626e-12$ & $3.4116e-18$ & $2.2474e-16$ \\
+\hline $7$ & $475367356.9114$ & $6.4816e-16$ & $4.4031e-09$ & $9.2625e-18$ & $1.3677e-16$ \\
+\hline $9$ & $493153404551.0121$ & $5.9273e-15$ & $3.8852e-06$ & $7.8783e-18$ & $2.6221e-16$ \\
+\hline $11$ & $522020733204514.8$ & $3.7619e-14$ & $0.0041508$ & $7.9515e-18$ & $6.4185e-17$ \\
 \hline
 \end{tabular}
 \label{Hilbert2}
@@ -329,11 +329,11 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & 2 & 0 & 0 & 0 & 0 \\
-\hline 5 & 7.4897 & 0 & $4.1633e-17$ & $5.5588e-18$ & 0  \\
-\hline 7 &  14.0383 & $2.9515e-17$ & $9.0653e-17$ & $6.4575e-18$ & 0  \\
-\hline 9 &  18.6369 & $2.3387e-17$ & $2.0414e-16$ & $1.0964e-17$ & $1.3865e-33$  \\
-\hline 11 &  22.6370 & $1.9321e-17$ & $2.1708e-16$ & $9.5894e-18$ & $3.8642e-17$  \\
+\hline $3$ & $2$ & $0$ & $8.6818e-17$ & $4.3409e-17$ & $3.3161e-17$ \\
+\hline $5$ & $7.4897$ & $0$ & $2.9763e-16$ & $3.9739e-17$ & $5.2256e-17$ \\
+\hline $7$ & $14.0383$ & $2.9515e-17$ & $3.505e-16$ & $2.4967e-17$ & $3.4306e-17$ \\
+\hline $9$ & $18.6369$ & $2.3387e-17$ & $1.7965e-16$ & $9.6396e-18$ & $3.0899e-17$ \\
+\hline $11$ & $22.637$ & $1.9321e-17$ & $3.1076e-16$ & $1.3728e-17$ & $3.9526e-17$ \\
 \hline
 \end{tabular}
 \label{Wilkinson2}
@@ -344,16 +344,15 @@ Wyniki b\k{e}dziemy sprawdza\'c dla 2 okre\'slonych macierzy B:
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
 \hline $n$ & cond(A) & $e_{dec}$ & $e_{rel}$ & $wsp_{stab}$ & $wsp_{popr}$\\
-\hline 3 & 4.3301 & 0 & 0.9822 & 0.2269 & $2.4016e-16$ \\
-\hline 5 & 5.4618 & $1.0931e-16$ & 0.9993 & 0.1830 & $1.9806e-16$  \\
-\hline 7 &  7.1113 & $9.4498e-16$ & 0.9999 & 0.1406 & $4.4752e-16$  \\
-\hline 9 &  9.1017 & $1.8403e-15$ & 1 & 0.1099 & $4.4632e-16$  \\
-\hline 11 &  11.1021 & 0.9180 & 0.9999 & 0.0901 & 0.1154  \\
+\hline $3$ & $4.3301$ & $0$ & $1.6984e-16$ & $3.9224e-17$ & $8.0675e-17$ \\
+\hline $5$ & $5.4618$ & $1.0931e-16$ & $5.8306e-16$ & $1.0675e-16$ & $1.1443e-16$ \\
+\hline $7$ & $7.1113$ & $9.4498e-16$ & $1.2273e-15$ & $1.7259e-16$ & $2.4545e-16$ \\
+\hline $9$ & $9.1017$ & $1.3065e-15$ & $1.4625e-15$ & $1.6068e-16$ & $1.9008e-16$ \\
+\hline $11$ & $11.1021$ & $0.91799$ & $0.84061$ & $0.075716$ & $0.077411$ \\
 \hline
 \end{tabular}
 \label{Magic2}
 \end{table}
-
 \newpage
 .
 \newpage
@@ -429,9 +428,9 @@ X=\begin{pmatrix}
 \item przypadek:
 \\
 rozwi\k{a}zanie wyznaczone przez program:
-\\ 1.0e+05 *
+\\ 
 \[ 
-X=\begin{pmatrix}
+X=\left(1.0e+05\right) \cdot \begin{pmatrix}
 -0.0025 & 0.0420 & -0.1680 & 0.2408 & -0.1134 \\
 0.0077 & -0.1440 & 0.6153 & -0.9212 & 0.4473 \\
 -0.0170 & 0.3168 & -1.3650 & 2.0608 & -1.0080 \\
@@ -440,9 +439,9 @@ X=\begin{pmatrix}
 \end{pmatrix}.
 \]
 rozwi\k{a}zanie dok\l{}adne:
-\\ 1.0e+05 *
+\\
 \[ 
-X=\begin{pmatrix}
+X=\left(1.0e+05\right) \cdot \begin{pmatrix}
 -0.0025 & 0.0420 & -0.1680 & 0.2408 & -0.1134 \\
 0.0077 & -0.1440 & 0.6153 & -0.9212 & 0.4473 \\
 -0.0170 & 0.3168 & -1.3650 & 2.0608 & -1.0080 \\
@@ -501,12 +500,12 @@ X=\begin{pmatrix}
 \caption{\footnotesize Wyznacznik macierzy Hilberta w zale\.zno\'sci od n}%vskip1ex
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
-\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d wzgl\k{e}dny & b\l{}\k{a}d bezwzgl\k{e}dny\\
-\hline 3 &  &  &  &   \\
-\hline 5 &  &  &  &    \\
-\hline 7 &   &  &  &     \\
-\hline 9 &   &  &  &     \\
-\hline 11 &   &  &  &    \\
+\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d bezwzgl\k{e}dny & b\l{}\k{a}d wzgl\k{e}dny\\
+\hline $3$ & $0.00046296$ & $0.00046296$ & $8.1315e-19$ & $1.7564e-15$ \\
+\hline $5$ & $3.7493e-12$ & $3.7493e-12$ & $6.0294e-24$ & $1.6081e-12$ \\
+\hline $7$ & $4.8358e-25$ & $4.8358e-25$ & $8.6363e-34$ & $1.7859e-09$ \\
+\hline $9$ & $9.7203e-43$ & $9.7203e-43$ & $5.5712e-49$ & $5.7315e-07$ \\
+\hline $11$ & $3.0226e-65$ & $3.027e-65$ & $4.3512e-68$ & $0.0014375$ \\
 \hline
 \end{tabular}
 \label{WyznacznikHilb}
@@ -516,12 +515,12 @@ X=\begin{pmatrix}
 \caption{\footnotesize Wyznacznik macierzy Wilkinsona w zale\.zno\'sci od n}%vskip1ex
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
-\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d wzgl\k{e}dny & b\l{}\k{a}d bezwzgl\k{e}dny\\
-\hline 3 &  &  &  &   \\
-\hline 5 &  &  &  &    \\
-\hline 7 &   &  &  &     \\
-\hline 9 &   &  &  &     \\
-\hline 11 &   &  &  &    \\
+\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d bezwzgl\k{e}dny & b\l{}\k{a}d wzgl\k{e}dny\\
+\hline $3$ & $-2$ & $-2$ & $0$ & $0$ \\
+\hline $5$ & $-4$ & $-4$ & $0$ & $0$ \\
+\hline $7$ & $-20$ & $-20$ & $0$ & $0$ \\
+\hline $9$ & $-252$ & $-252$ & $5.6843e-14$ & $2.2557e-16$ \\
+\hline $11$ & $-5610$ & $-5610$ & $1.819e-12$ & $3.2424e-16$ \\
 \hline
 \end{tabular}
 \label{WyznacznikWilk}
@@ -531,12 +530,12 @@ X=\begin{pmatrix}
 \caption{\footnotesize Wyznacznik macierzy magicznej w zale\.zno\'sci od n}%vskip1ex
 \renewcommand{\arraystretch}{1.1}
 \centering\begin{tabular}{|c|c|c|c|c|c|}
-\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d wzgl\k{e}dny & b\l{}\k{a}d bezwzgl\k{e}dny\\
-\hline 3 &  &  &  &   \\
-\hline 5 &  &  &  &    \\
-\hline 7 &   &  &  &     \\
-\hline 9 &   &  &  &     \\
-\hline 11 &   &  &  &    \\
+\hline $n$ & detmd(A) & det(A) & b\l{}\k{a}d bezwzgl\k{e}dny & b\l{}\k{a}d wzgl\k{e}dny\\
+\hline $3$ & $-360$ & $-360$ & $0$ & $0$ \\
+\hline $5$ & $5070000$ & $5070000$ & $0$ & $0$ \\
+\hline $7$ & $-348052801600.0001$ & $-348052801599.9999$ & $0.00018311$ & $5.2609e-16$ \\
+\hline $9$ & $7.5035738059e+16$ & $7.5035738059e+16$ & $32$ & $4.2646e-16$ \\
+\hline $11$ & $-3.8390999159e+22$ & $-4.1037749689e+22$ & $2.64675052985e+21$ & $0.064496$ \\
 \hline
 \end{tabular}
 \label{WyznacznikMagic}
@@ -547,9 +546,9 @@ Wyniki odwracania macierzy funkcj\k{a} invmd por\'ownamy z wynikami funkcji wbud
 \item Macierz Hilberta:
 \begin{enumerate}
 \item n=5:
-\\$1.0e+05$ *
+\\
 \[
-invmd(A)=\begin{pmatrix}
+invmd(A)=\left(1.0e+05\right) \cdot \begin{pmatrix}
 0.0002 & -0.0030 & 0.0105 & -0.0140 & 0.0063 \\
 -0.0030 & 0.0480 & -0.1890 & 0.2688 & -0.1260 \\
 0.0105 & -0.1890 & 0.7938 & -1.1760 & 0.5670 \\
@@ -558,9 +557,8 @@ invmd(A)=\begin{pmatrix}
 \end{pmatrix}.
 \]
 \\
-$1.0e+05$ *
 \[
-inv(A)=\begin{pmatrix}
+inv(A)=\left(1.0e+05\right) \cdot \begin{pmatrix}
 0.0002 & -0.0030 & 0.0105 & -0.0140 & 0.0063 \\
 -0.0030 & 0.0480 & -0.1890 & 0.2688 & -0.1260 \\
 0.0105 & -0.1890 & 0.7938 & -1.1760 & 0.5670 \\
@@ -570,12 +568,29 @@ inv(A)=\begin{pmatrix}
 \]
 \item n=7:
 
-invmd(A)=error('Matrix is singular to working precicion')
-\\
-$1.0e+08$ *
-
+Warning: Matrix is singular to working precision.
 \[
-inv(A)=\begin{pmatrix}
+invmd(A)=\]
+\\
+\[\left(1.0e+08\right) \cdot \begin{pmatrix}
+0.0000 & -0.0000 & 0.0001 & -0.0003 & 0.0005 & -0.0004 & 0.0001 \\
+-0.0000 & 0.0004 & -0.0032 & 0.0113 & -0.0194 & 0.0160 & -0.0050 \\
+0.0001 & -0.0032 & 0.0286 & -0.1058 & 0.1871 & -0.1572 & 0.0505 \\
+-0.0003 & 0.0113 & -0.1058 & 0.4032 & -0.7277 & 0.6209 & -0.2018 \\
+0.0005 & -0.0194  & 0.1871 & -0.7277 & 1.3340 & -1.1526 & 0.3784 \\
+-0.0004 & 0.0160 & -0.1572 & 0.6209 & -1.1526 & 1.0059 & -0.3330\\
+0.0001 & -0.0050 & 0.0505 & -0.2018 & 0.3784 & -0.3330 & 0.1110\\
+\end{pmatrix}.
+\]
+\\
+
+\newpage
+\[
+inv(A)=
+\]
+\\
+\[
+\left(1.0e+08\right) \cdot \begin{pmatrix}
 0.0000 & -0.0000 & 0.0001 & -0.0003 & 0.0005 & -0.0004 & 0.0001 \\
 -0.0000 & 0.0004 & -0.0032 & 0.0113 & -0.0194 & 0.0160 & -0.0050 \\
 0.0001 & -0.0032 & 0.0286 & -0.1058 & 0.1871 & -0.1572 & 0.0505 \\
@@ -586,7 +601,6 @@ inv(A)=\begin{pmatrix}
 \end{pmatrix}.
 \]
 \end{enumerate}
-\newpage
 \item Macierz Wilkinsona:
 \begin{enumerate}
 \item n=5:
@@ -681,7 +695,10 @@ inv(A)=\begin{pmatrix}
 \end{enumerate}
 \section{Analiza wynik\'ow}
 
-Cos tu sie zanalizuje, ale chyba dopiero po poprawieniu invmd.
+Z tabeli \ref{Hilbert1} widzimy, \.ze b\l{}\k{e}dy w du\.zym stopniu zale\.z\k{a} od wska\'znika uwarunkowania macierzy. Dla coraz wi\k{e}kszego n wspomniany wska\'znik macierzy Hilberta ro\'snie bardzo szybko, co powoduje szybko wzrastaj\k{a}ce b\l{}\k{e}dy dla co raz wi\k{e}kszych n. 
+\\
+Wyniki w tabeli \ref{Wilkinson1} potwierdzaj\k{a} wywnioskowane spostrze\.zenie. To samo mo\.zna stwierdzi\'c analizuj\k{a}c wyniki w tabeli \ref{Magic1}. Jednak widocznym jest nag\l{}y wzrost b\l{}\k{e}du dla n=11.
+
 
 {\small
 \begin{thebibliography}{11}

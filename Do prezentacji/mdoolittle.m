@@ -17,7 +17,7 @@ function [U,L]=mdoolittle(A)
     for j=n:-1:1
         U(1:j,j)=A(1:j,j)-U(1:j,(j+1):n)*L((j+1):n,j);
         if abs(U(j,j))<eps
-            error('Division by zero!');
+            warning('Division by zero!');
         end
         L(j,1:j)=(A(j,1:j)-U(j,(j+1):n)*L((j+1):n,1:j))./U(j,j);
     end

@@ -19,7 +19,7 @@ function [X]=solvemd(A,B)
     X=zeros(size(B));
     for i=1:n
         if abs(U(i,i))<eps
-            error('Division by zero!')
+            warning('Division by zero!')
         end
         X(1:n,i)=(Y(1:n,i)-X(1:n,1:(i-1))*U(1:(i-1),i))/U(i,i);
     end

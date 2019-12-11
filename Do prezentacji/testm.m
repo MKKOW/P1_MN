@@ -10,9 +10,8 @@ function [con,ed,er,wstab,wpopr,det_md,det_,det_error,det_relative_error]=testm(
     det_md=detmd(A);
     det_=det(A);
     det_error=abs(det_md-det_);
-    if abs(det_)<eps
-        det_relative_error=0;
-    else
+     if abs(det_)<eps
+         warning('Matrix is singular to working precision.');
+     end
         det_relative_error=abs((det_md-det_)/det_);
-    end
 end

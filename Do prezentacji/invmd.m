@@ -8,9 +8,9 @@ function [Ai]=invmd(A)
     if nargin>1
         error('Too many input arguments.');
     end
-    if abs(detmd(A)) < eps
-        error('Matrix is singular to working precision.');
-    end
+     if abs(detmd(A)) < eps
+         warning('Matrix is singular to working precision.');
+     end
     if size(A,1)~=size(A,2)
         error('Matrix must be square.');
     end
