@@ -1,0 +1,10 @@
+\babel@toc {polish}{}
+\contentsline {section}{\numberline {1}Opis metody}{3}% 
+\contentsline {section}{\numberline {2}Opis programu obliczeniowego}{5}% 
+\contentsline {section}{\numberline {3}Przyk\l ady obliczeniowe}{6}% 
+\contentsline {section}{\numberline {4}Analiza wynik\'ow}{14}% 
+\contentsline {section}{\numberline {5}Kod programu}{17}% 
+\contentsline {subsection}{\numberline {5.1}mdoolittle.m}{17}% 
+\contentsline {subsection}{\numberline {5.2}solvemd.m}{18}% 
+\contentsline {subsection}{\numberline {5.3}invmd.m}{19}% 
+\contentsline {subsection}{\numberline {5.4}detmd.m}{20}% 

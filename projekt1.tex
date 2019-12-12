@@ -4,11 +4,15 @@
 \usepackage{amsfonts}
 \usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
-\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
 \usepackage[cp1250]{inputenc}
 \usepackage{caption}
 \usepackage{enumerate}
-
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
 
 \captionsetup[table]{name=Tabela}
 
@@ -51,7 +55,9 @@ Grupa G8}
 
 \vskip20ex
 
-
+\newpage
+\tableofcontents
+\newpage
 \section{Opis metody}
 
 \noindent Rozwi\k{a}zanie uk\l{}adu r\'owna\'n XA=B, gdzie $A\in \mathbb R^\mathrm{n\times n}$, $B\in \mathbb R^\mathrm{n\times n}$, zmodyfikowan\k{a} metod\k{a} Doolitle'a opiera si\k{e} na wyznaczeniu macierzy $L\in \mathbb R^\mathrm{n\times n}$ oraz $U\in \mathbb R^\mathrm{n\times n}$ takich, \.ze L jest macierz\k{a} tr\'ojk\k{a}tn\k{a} doln\k{a} z jedynkami na gl\'ownej przek\k{a}tnej, a U macierz\k{a} tr\'ojk\k{a}tn\k{a} g\'orn\k{a} oraz A=UL.
@@ -583,7 +589,6 @@ invmd(A)=\]
 \]
 \\
 
-\newpage
 \[
 inv(A)=
 \]
@@ -699,21 +704,73 @@ Z tabeli \ref{Hilbert1} widzimy, \.ze b\l{}\k{e}dy w du\.zym stopniu zale\.z\k{a
 Wyniki w tabeli \ref{Wilkinson1} potwierdzaj\k{a} wywnioskowane spostrze\.zenie. To samo mo\.zna stwierdzi\'c analizuj\k{a}c wyniki w tabeli \ref{Magic1}. Jednak widocznym jest nag\l{}y wzrost b\l{}\k{e}du dla n=11. Z tego powodu zbadamy dodatkowo zachowanie b\l{}\k{e}d\'ow dla Macierzy Magicznej w zale\.zno\'sci od rozmiaru tej macierzy. Dodatkowo wykonamy badanie zale\.zno\'sci warto\'sci wska\'znika uwarunkowania, b\l{}edu wzgl\k{e}dnego oraz wsp\'o\l{}czynnika stabilno\'sci od wymiar\'ow macierzy dla macierzy Hilberta.
 \\
 \begin{figure}[!h]
-\centering\includegraphics[width=10cm]{nphilb.eps}
+\centering
+\includegraphics[width=0.5\textwidth]{pmag.png}
 \vskip-1.5ex
-\caption{\footnotesize Zale\.zno\'s\'c wska\'znika uwarunkowania macierzy Hilberta od wymiar\'ow macierzy}
-\label{npcondHilbert}
+\caption{\footnotesize Zale\.zno\'s\'c wska\'znika uwarunkowania macierzy magicznej od wymiar\'ow macierzy\\ (wymiar b\k{e}d\k{a}cy liczb\k{a} parzyst\k{a})}
+\label{pcondMagic}
 \end{figure}
-
-Na powy\.zszych wykresach mo\.zemy dostrzec tendencj\k{e} do liniowego wzrostu wska\'znika uwarunkowania Macierzy Magicznej dla n nieparzystego. Natomiast dla n parzystego warto\'sci wska\'znika uwarunkowania zmieniaj\k{a} si\k{e} w spos\'ob znaczny malej\k{a}c, by dla kolejnej warto\'sci zn\'ow wzrosn\k{a}\'c. To mo\.ze by\'c przyczyn\k{a} nag\l{}ego wzrostu b\l{}\k{e}d\'ow dla n wi\k{e}kszego od 9.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{npmag.png}
+	\vskip-1.5ex
+	\caption{\footnotesize Zale\.zno\'s\'c wska\'znika uwarunkowania macierzy magicznej od wymiar\'ow macierzy\\ (wymiar b\k{e}d\k{a}cy liczb\k{a} nieparzyst\k{a})}
+	\label{npcondMagic}
+\end{figure}
+\newpage
+Na powy\.zszych wykresach(Rysunek \ref{pcondMagic} oraz Rysunek \ref{npcondMagic}) mo\.zemy dostrzec tendencj\k{e} do liniowego wzrostu wska\'znika uwarunkowania Macierzy Magicznej dla n nieparzystego. Natomiast dla n parzystego warto\'sci wska\'znika uwarunkowania nie przejawiaj\k{a} ju¿ takiego trendu. Zauwa\.zmy r\'ownie\.z \.ze w obydwu przypadkach otrzymujemy wska\'niki uwarunkowania zupe\l{}nie r\'o\.znego rz\k{e}du wielko\'sci.(dla n parzystych nawet $10^{19}$, a dla n nieparystych mamy wzrost liniowy).
 \\
-Z wykres\'ow ukazuj\k{a}cych zale\.zno\'s\'c mi\k{e}dzy wsp\'o\l{}czynnikiem stabilno\'sci, a wielko\'sci\k{a} macierzy Hilberta mo\.zna wywnioskowa\'c, \.ze zmiana wsp\'o\l{}czynnika stabilno\'sci nie zale\.zy od parzysto\'sci wymiar\'ow macierzy. Widzimy r\'ownie\.z tendencj\k{e} do zbli\.zania si\k{e} warto\'sci tego wsp\'o\l{}czynnika do zera dla coraz wi\k{e}kszych n.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{philbwspstab.png}
+	\vskip-1.5ex
+	\caption{\footnotesize Zale\.zno\'s\'c wsp\'o\l{}czynnika stabilnoœci macierzy hilberta od wymiar\'ow macierzy\\ (wymiar b\k{e}d\k{a}cy liczb\k{a} parzyst\k{a})}
+	\label{pcondHilb}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{nphilbwspstab.png}
+	\vskip-1.5ex
+	\caption{\footnotesize Zale\.zno\'s\'c wsp\'o\l{}czynnika stabilnoœci macierzy hilberta od wymiar\'ow macierzy\\ (wymiar b\k{e}d\k{a}cy liczb\k{a} nieparzyst\k{a})}
+	\label{npcondHilb}
+\end{figure}
 \\
-Analizuj\k{a}c b\l{}\k{e}dy mi\k{e}dzy wyznacznikiem obliczonym funkcj\k{a} detmd a det, dochodzimy do wniosku, \.ze wielko\'s\'c b\l{}\k{e}du w spos\'ob \'scis\l{}y zale\.zy od wska\'znika uwarunkowania macierzy oraz dodatkowo dla Macierzy Magicznej od jej wielko\'sci - dla n wi\k{e}kszych od 9 b\l{}\k{a}d drastycznie ro\'snie. 
+Z wykres\'ow ukazuj\k{a}cych zale\.zno\'s\'c mi\k{e}dzy wsp\'o\l{}czynnikiem stabilno\'sci, a wielko\'sci\k{a} macierzy Hilberta (Rysunek \ref{pcondHilb} i Rysunek \ref{npcondHilb}) mo\.zna wywnioskowa\'c, \.ze zmiana wsp\'o\l{}czynnika stabilno\'sci nie zale\.zy od parzysto\'sci wymiar\'ow macierzy. Widzimy r\'ownie\.z tendencj\k{e} do zbli\.zania si\k{e} warto\'sci tego wsp\'o\l{}czynnika do zera dla coraz wi\k{e}kszych n.
+\\
+Analizuj\k{a}c b\l{}\k{e}dy mi\k{e}dzy wyznacznikiem obliczonym funkcj\k{a} detmd a det(tabele nr \ref{WyznacznikHilb}, \ref{WyznacznikMagic}, \ref{WyznacznikWilk}), dochodzimy do wniosku, \.ze wielko\'s\'c b\l{}\k{e}du w spos\'ob \'scis\l{}y zale\.zy od wska\'znika uwarunkowania macierzy oraz dodatkowo dla Macierzy Magicznej od jej wielko\'sci - dla n wi\k{e}kszych od 9 b\l{}\k{a}d drastycznie ro\'snie. 
 \\
 Natomiast dla funkcji invmd oraz inv mo\.zemy spostrzec wypisanie przez program ostrze\.zenia o wyznaczniku macierzy bliskiemu warto\'sci 0 dla macierzy Hilberta o wymiarach $7\times 7$, co zwraca nam uwag\k{e} na mo\.zliwe b\l{}\k{e}dy dla macierzy o niewielkich warto\'sciach wyznacznika. Jednak dla badanych warto\'sci n b\l{}\k{e}dy mi\k{e}dzy wynikami otrzymanymi tymi dwoma funkcjami s\k{a} niezauwa\.zalne bez dog\l{}\k{e}bniejszej analizy. 
+\newpage
+\section{Kod programu}
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\subsection{mdoolittle.m}
 
+\lstinputlisting{mdoolittle.m}
+\newpage
+\subsection{solvemd.m}
 
+\lstinputlisting{solvemd.m}
+\newpage
+\subsection{invmd.m}
 
-\tableofcontents
+\lstinputlisting{invmd.m}
+\subsection{detmd.m}
+
+\lstinputlisting{detmd.m}
+\newpage
 \end{document}
